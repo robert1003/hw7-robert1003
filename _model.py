@@ -28,7 +28,7 @@ class StudentNet(nn.Module):
 
         bandwidth = [base * m for m in multiplier]
 
-        for i in range(3, len(bandwidth)):
+        for i in range(3, len(bandwidth) - 1):
             bandwidth[i] = int(bandwidth[i] * width_mult)
         self.cnn = nn.Sequential(
             self._cnn_block(3, bandwidth[0], 3, break_down=False),
