@@ -57,7 +57,7 @@ logging.basicConfig(
 
 # train!
 val_best_acc = 0
-epochs = 890 + 1
+epochs = 1000
 start = time.time()
 for epoch in range(epochs):
     logging.info('epoch {}/{}'.format(epoch + 1, epochs))
@@ -72,8 +72,6 @@ for epoch in range(epochs):
         torch.save(student_net.state_dict(), args.model_file)
 
     print(timeSince(start, epoch + 1, epochs))
-
-torch.save(student_net.state_dict(), args.model_file)
 
 # convert to 8-bit model
 student_net.load_state_dict(torch.load(args.model_file))
